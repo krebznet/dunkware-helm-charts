@@ -1,0 +1,4 @@
+Things to do: 
+
+1. mongo-pv need to be auto-generated, the values given are lists of node-names and file directory paths.
+2, mongo-express host path string need to be better generated.

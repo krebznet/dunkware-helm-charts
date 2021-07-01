@@ -31,3 +31,16 @@ mongodb:
 ingress:    
   hosts:
     - host: "mongo-express.devrock.com"
+
+# index have to go from 0, 1, 2, ..
+
+pv:
+  - nodeName: "devRock1"
+    filePath: "/home/pvc/mongo"
+    index: 0
+  - nodeName: "devRock2"
+    filePath: "/home/pvc/mongo"
+    index: 1 
+  - nodeName: "devRock4"
+    filePath: "/home/pvc/mongo"
+    index: 2

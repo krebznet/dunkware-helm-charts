@@ -1,0 +1,29 @@
+{{- range $index := .Values.pv}}
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv-{{ .index}}
+  namespace: mongo
+spec:
+  claimRef:
+    name: datadir-mongodb-{{ .index}}
+    namespace: mongo
+  capacity:
+    storage: 16Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: {{.filePath}}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - {{.nodeName}}
+---
+{{- end}}
