@@ -1,0 +1,33 @@
+mongo-express:
+  mongodbServer: "rs0/mongodb-1.mongodb-headless.mongo.svc.cluster.local,mongodb-0.mongodb-headless.mongo.svc.cluster.local,mongodb-2.mongodb-headless.mongo.svc.cluster.local" 
+  # mongodbServer: mongodb-1.mongodb-headless.mongo.svc.cluster.local
+  mongodbEnableAdmin: "true"
+  mongodbAdminUsername: "root"
+  mongodbAdminPassword: "password"
+
+  # ingress stuff
+  ingress:
+    enabled: false
+    hosts:
+      - host: "mongo-express.devrock.com"
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: mongo-express
+              port:
+                number: 80 
+
+mongodb: 
+  architecture: "replicaset"
+  auth:
+    enabled: false
+  replicaCount: 3
+  persistence: 
+    enabled: false
+    storageClass: "local-storage"
+
+ingress:    
+  hosts:
+    - host: "mongo-express.devrock.com"

@@ -1,0 +1,9 @@
+dependencies:
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.20.5
+- name: mongo-express
+  repository: https://cowboysysop.github.io/charts/
+  version: 2.4.0
+digest: sha256:803114a27ba0fb9ed0bf2b5ccc57b7a724d7b63303c9f11ce2b703ed10229bfc
+generated: "2021-07-01T15:53:45.558152-05:00"
