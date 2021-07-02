@@ -1,23 +1,13 @@
+# HELM CHART NAME HAS TO BE  mongodb!!!!!!!!!!!!!!!!!!
+
 mongo-express:
   mongodbServer: "rs0/mongodb-1.mongodb-headless.mongo.svc.cluster.local,mongodb-0.mongodb-headless.mongo.svc.cluster.local,mongodb-2.mongodb-headless.mongo.svc.cluster.local" 
   # mongodbServer: mongodb-1.mongodb-headless.mongo.svc.cluster.local
   mongodbEnableAdmin: "true"
   mongodbAdminUsername: "root"
   mongodbAdminPassword: "password"
+  fullnameOverride: "mongo-express"
 
-  # ingress stuff
-  ingress:
-    enabled: false
-    hosts:
-      - host: "mongo-express.devrock.com"
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: mongo-express
-              port:
-                number: 80 
 
 mongodb: 
   architecture: "replicaset"
@@ -32,15 +22,13 @@ ingress:
   hosts:
     - host: "mongo-express.devrock.com"
 
-# index have to go from 0, 1, 2, ..
-
-pv:
-  - nodeName: "devRock1"
-    filePath: "/home/pvc/mongo"
-    index: 0
-  - nodeName: "devRock2"
-    filePath: "/home/pvc/mongo"
-    index: 1 
-  - nodeName: "devRock4"
-    filePath: "/home/pvc/mongo"
-    index: 2
+# mongo-pv:
+#   - nodeName: "devRock1"
+#     filePath: "/home/pvc/mongo"
+#     index: 0
+#   - nodeName: "devRock2"
+#     filePath: "/home/pvc/mongo"
+#     index: 1
+#   - nodeName: "devRock4"
+#     filePath: "/home/pvc/mongo"
+#     index: 2
