@@ -22,13 +22,13 @@ ingress:
   hosts:
     - host: "mongo-express.devrock.com"
 
-# mongo-pv:
-#   - nodeName: "devRock1"
-#     filePath: "/home/pvc/mongo"
-#     index: 0
-#   - nodeName: "devRock2"
-#     filePath: "/home/pvc/mongo"
-#     index: 1
-#   - nodeName: "devRock4"
-#     filePath: "/home/pvc/mongo"
-#     index: 2
+mongo-pv:
+  - nodeName: "devRock1"
+    filePath: "/home/pvc/mongo"
+    index: 0
+  - nodeName: "devRock2"
+    filePath: "/home/pvc/mongo"
+    index: 1
+  - nodeName: "devRock4"
+    filePath: "/home/pvc/mongo"
+    index: 2
