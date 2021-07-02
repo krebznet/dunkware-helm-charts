@@ -18,6 +18,7 @@ mongodb:
   persistence: 
     enabled: false
     storageClass: "local-storage"
+  fullnameOverride: "mongodb"
 
 ingress:    
   hosts:
