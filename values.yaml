@@ -12,7 +12,8 @@ mongo-express:
 mongodb: 
   architecture: "replicaset"
   auth:
-    enabled: false
+    enabled: true
+    rootPassword: "password"
   replicaCount: 3
   persistence: 
     enabled: false
